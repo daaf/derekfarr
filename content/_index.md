@@ -3,6 +3,8 @@ title: Introduction
 type: docs
 ---
 
+  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 # Acerbo datus maxime
 
 {{< columns >}}
