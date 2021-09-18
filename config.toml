@@ -1,6 +1,6 @@
 baseURL = 'https://nifty-liskov-763db1.netlify.app/'
 languageCode = 'en-us'
-title = 'My Doc Site'
+title = 'Derek Farr'
 theme = 'book'
 
 [params]

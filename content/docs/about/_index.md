@@ -1,4 +1,5 @@
 ---
-title: Reference
+title: About
 bookCollapseSection: true
+weight: 3
 ---
