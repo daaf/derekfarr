@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://nifty-liskov-763db1.netlify.app/'
 languageCode = 'en-us'
 title = 'My Doc Site'
 theme = 'book'
