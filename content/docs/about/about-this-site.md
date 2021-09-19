@@ -11,7 +11,7 @@ This site is a basic exemplar of the JAMstack. It uses:[](https://gohugo.io)
 * [Netlify CMS](https://www.netlifycms.org/) as a "headless" CMS
 * [GitHub](https://www.github.com) to host the source code repository
 
-{{< hint tip >}}
+{{< hint info >}}
 **More Information**
 For more information on building sites like this with the JAMstack, [see this helpful article on stackbit.com](https://www.stackbit.com/blog/jamstack-documentation-sites/).
 {{< /hint >}}
