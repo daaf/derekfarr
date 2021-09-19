@@ -4,7 +4,7 @@ weight: 2
 ---
 # About This Site
 
-This site is a basic exemplar of the [JAMstack](https://jamstack.wtf/). It uses:[](https://gohugo.io)
+This site is a basic exemplar of the [Jamstack](https://jamstack.wtf/). It uses:[](https://gohugo.io)
 
 * [Hugo](https://gohugo.io) as a static site generator
 * [hugo-book](https://github.com/alex-shpak/hugo-book) as a theme for Hugo
@@ -12,6 +12,6 @@ This site is a basic exemplar of the [JAMstack](https://jamstack.wtf/). It uses:
 * [GitHub](https://www.github.com) to host the source code repository
 
 {{< hint info >}}
-**More information**  
-For more information on building sites like this with the JAMstack, [see this helpful article on stackbit.com](https://www.stackbit.com/blog/jamstack-documentation-sites/).
+**More information**\
+For more information on building sites like this with the Jamstack, [see this helpful article on stackbit.com](https://www.stackbit.com/blog/jamstack-documentation-sites/).
 {{< /hint >}}
