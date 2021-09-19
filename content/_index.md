@@ -20,4 +20,6 @@ I'm a technical writer and e-learning developer living in Philadelphia, USA. I l
 
 ## What's up with this website?
 
-This website is a collection of projects and other work by me.
+This website is a collection of projects and other work by me. At the time of this writing, the site is extremely new, but I hope to add to it over time.
+
+For more information about the site itself, check out the [About This Site](https://derekfarr.com/docs/about/about-this-site) page.
