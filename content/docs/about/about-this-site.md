@@ -12,6 +12,6 @@ This site is a basic exemplar of the [JAMstack](https://jamstack.wtf/). It uses:
 * [GitHub](https://www.github.com) to host the source code repository
 
 {{< hint info >}}
-**More Information**
+**More information**  
 For more information on building sites like this with the JAMstack, [see this helpful article on stackbit.com](https://www.stackbit.com/blog/jamstack-documentation-sites/).
 {{< /hint >}}
