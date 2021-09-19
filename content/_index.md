@@ -2,7 +2,7 @@
 title: Welcome
 type: docs
 ---
-# 👋  Hi! I'm Derek
+# Hi 👋 I'm Derek
 
 {{< columns >}}
 
