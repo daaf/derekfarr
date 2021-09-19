@@ -13,5 +13,5 @@ This site is a basic exemplar of the [Jamstack](https://jamstack.wtf/). It uses:
 
 {{< hint info >}}
 **More information**\
-For a guide to building sites like this—with Jamstack architecture and headless CMS—[see this helpful article on stackbit.com](https://www.stackbit.com/blog/jamstack-documentation-sites/).
+For a helpful guide to building sites like this—with Jamstack architecture and headless CMS—[see this article on stackbit.com](https://www.stackbit.com/blog/jamstack-documentation-sites/).
 {{< /hint >}}
