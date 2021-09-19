@@ -8,8 +8,9 @@ This site is a basic exemplar of the [Jamstack](https://jamstack.wtf/). It uses:
 
 * [Hugo](https://gohugo.io) as a static site generator
 * [hugo-book](https://github.com/alex-shpak/hugo-book) as a theme for Hugo
-* [Netlify CMS](https://www.netlifycms.org/) as a "headless" CMS
 * [GitHub](https://www.github.com) to host the source code repository
+* [Netlify](https://www.netlify.com) for hosting and CI/CD
+* [Netlify CMS](https://www.netlifycms.org/) as a "headless" CMS[](https://www.github.com)
 
 {{< hint info >}}
 **More information**\
