@@ -2,11 +2,9 @@
 title: Welcome
 type: docs
 ---
-# Welcome to my website
+# :wave: Hi! I'm Derek
 
 {{< columns >}}
-
-
 
 ## Who am I?
 
