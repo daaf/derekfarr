@@ -2,6 +2,9 @@ baseURL = 'https://www.derekfarr.com'
 languageCode = 'en-us'
 title = 'Derek Farr'
 theme = 'hugo-book'
+enableGitInfo = true
 
 [params]
+BookTheme = 'auto'
 BookSearch = true
+BookRepo = 'https://github.com/daaf/derekfarr'
