@@ -2,42 +2,22 @@
 title: Welcome
 type: docs
 ---
-
-  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-# Acerbo datus maxime
+# Hi 👋 I'm Derek
 
 {{< columns >}}
-## Astris ipse furtiva
 
-Est in vagis et Pittheus tu arge accipiter regia iram vocatur nurus. Omnes ut
-olivae sensit **arma sorori** deducit, inesset **crudus**, ego vetuere aliis,
-modo arsit? Utinam rapta fiducia valuere litora _adicit cursu_, ad facies
+## Who am I?
+
+I'm a technical writer and e-learning developer living in Philadelphia, USA. I like to spend my time both at work and outside of it exploring programming and other technical topics. I also like playing guitar and getting lost on my bike.
 
 <--->
 
-## Suis quot vota
+![](/images/uploads/derek-farr-photo-cropped-300px.jpg)
 
-Ea _furtique_ risere fratres edidit terrae magis. Colla tam mihi tenebat:
-miseram excita suadent es pecudes iam. Concilio _quam_ velatus posset ait quod
-nunc! Fragosis suae dextra geruntur functus vulgata.
 {{< /columns >}}
 
+## What's up with this website?
 
-## Tempora nisi nunc
+This website is a collection of projects and other work by me. At the time of this writing, the site is extremely new, but I hope to add to it over time.
 
-Lorem **markdownum** emicat gestu. Cannis sol pressit ducta. **Est** Idaei,
-tremens ausim se tutaeque, illi ulnis hausit, sed, lumina cutem. Quae avis
-sequens!
-
-    var panel = ram_design;
-    if (backup + system) {
-        file.readPoint = network_native;
-        sidebar_engine_device(cell_tftp_raster,
-                dual_login_paper.adf_vci.application_reader_design(
-                graphicsNvramCdma, lpi_footer_snmp, integer_model));
-    }
-
-## Locis suis novi cum suoque decidit eadem
-
-Idmoniae ripis, at aves, ali missa adest, ut _et autem_, et ab?
+For more information about the site itself, check out the [About This Site](https://derekfarr.com/docs/about/about-this-site) page.
