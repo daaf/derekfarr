@@ -8,3 +8,4 @@ enableGitInfo = true
 BookTheme = 'auto'
 BookSearch = true
 BookRepo = 'https://github.com/daaf/derekfarr'
+BookLogo = 'images/26f2.png'
