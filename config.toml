@@ -1,7 +1,7 @@
 baseURL = 'https://www.derekfarr.com'
 languageCode = 'en-us'
 title = 'Derek Farr'
-theme = 'book'
+theme = 'hugo-book'
 
 [params]
 BookSearch = true
