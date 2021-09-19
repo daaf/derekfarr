@@ -4,7 +4,7 @@ type: docs
 ---
 # Hi 👋 I'm Derek
 
-## Who I am
+## Who am I?
 
 {{< columns >}}
 
