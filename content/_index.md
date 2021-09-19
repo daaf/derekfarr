@@ -6,6 +6,8 @@ type: docs
 
 {{< columns >}}
 
+
+
 ## Who am I?
 
 I'm a technical writer and e-learning developer living in Philadelphia, USA. I like to spend my time both at work and outside of it exploring programming and other technical topics. I also like playing guitar and getting lost on my bike.
