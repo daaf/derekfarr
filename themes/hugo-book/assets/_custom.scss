@@ -24,6 +24,10 @@ h2.book-brand {
     padding: .25rem;
 }
 
+h2.book-brand > a > span {
+    padding-left: .25rem;
+}
+
 #book-search-input {
     padding: .75rem;
 }
