@@ -1,3 +1,29 @@
 /* You can add custom styles here. */
 
 // @import "plugins/numbered";
+h1, h2, h3, h4, h5, h6 {
+    padding: .25rem .4rem;
+    background: var(--gray-200);
+    border-radius: .25rem;
+    width: fit-content;
+    font-family: roboto mono, monospace;
+}
+
+h1 {
+    font-size: 1.7rem;
+    padding: .4rem;
+}
+
+h2 {
+    font-size: 1.35rem;
+}
+
+h2.book-brand {
+    width: 100%;
+    background: var(--gray-100);
+    padding: .25rem .25rem;
+}
+
+#book-search-input {
+    padding: .75rem;
+}
