@@ -13,3 +13,17 @@ BookLogo = 'images/26f2.png'
 [markup]
 [markup.goldmark.renderer]
 unsafe = true
+
+[markup.tableOfContents]
+startLevel = 1
+
+[menu]
+[[menu.after]]
+name = "GitHub"
+url = "https://github.com/daaf"
+weight = 20
+
+[[menu.after]]
+name = "LinkedIn"
+url = "https://linkedin.com/in/derek-farr"
+weight = 30
