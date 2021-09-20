@@ -29,11 +29,8 @@ h2.book-brand > a > span {
 }
 
 article.markdown {
-    min-height: 18.75rem;
-}
-
-.markdown {
     max-width: 40rem;
+    min-height: 18.75rem;
 }
 
 .markdown h1 + h2 {
