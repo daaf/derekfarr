@@ -18,6 +18,10 @@ h2 {
     font-size: 1.35rem;
 }
 
+.markdown h1 + h2 {
+    margin-top: 1.26em;
+}
+
 h2.book-brand {
     width: 100%;
     background: var(--gray-100);
