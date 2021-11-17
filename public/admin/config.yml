@@ -1,0 +1,156 @@
+site_url: https://derekfarr.com
+display_url: https://derekfarr.com
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+publish_mode: editorial_workflow
+backend:
+  name: github
+  branch: master
+  repo: daaf/derekfarr
+collections:
+    - name: home
+      label: Home Page
+      description: >
+          The site's home page.
+          New pages can't be added to this collection via the CMS.
+      slug: '{{slug}}'
+      files:
+          - name: 'home'
+            label: 'Home Page'
+            file: 'content/_index.md'
+            fields:
+                - widget: string
+                  name: title
+                  label: Title
+                  required: true
+                  hint: >-
+                      The title of the page
+                - widget: markdown
+                  name: body
+                  label: Content
+                  required: true
+                  hint: Page content
+    - name: projects
+      label: Projects
+      label_singular: Project
+      description: Pages that are about a project of mine.
+      folder: /content/docs/projects
+      create: true
+      extension: md
+      slug: '{{slug}}'
+      preview_path: docs/projects/{{slug}}
+      fields:
+          - widget: string
+            name: title
+            label: Title
+            required: true
+            hint: >
+                The title of the page that will appear 
+                in the left hand navigation.
+          - widget: number
+            name: weight
+            label: Weight
+            required: false
+            hint: >
+                The navigation order of the page.
+          - widget: boolean
+            name: bookToc
+            label: Table of Contents
+            required: false
+            hint: >
+                If false, the right hand table of contents will not show. 
+                Defaults to true if empty.
+          - widget: boolean
+            name: bookHidden
+            label: Hidden?
+            required: false
+            hint: >
+                If true, the page will not list on the left hand navigation.
+          - widget: markdown
+            name: body
+            label: Content
+            required: true
+            hint: Page content
+    - name: articles
+      label: Articles
+      label_singular: Article
+      description: >
+          Articles about a particular topic.
+          If it could be used as a writing sample, this is the place for it!
+      folder: /content/docs/articles
+      create: true
+      extension: md
+      slug: '{{slug}}'
+      preview_path: docs/articles/{{slug}}
+      fields:
+          - widget: string
+            name: title
+            label: Title
+            required: true
+            hint: >
+                The title of the page that will appear 
+                in the left hand navigation.
+          - widget: number
+            name: weight
+            label: Weight
+            required: false
+            hint: >
+                The navigation order of the page.
+          - widget: boolean
+            name: bookToc
+            label: Table of Contents
+            required: false
+            hint: >
+                If false, the right hand table of contents will not show.
+                Defaults to true.
+          - widget: boolean
+            name: bookHidden
+            label: Hidden?
+            required: false
+            hint: >
+                If true, the page will not list on the left hand navigation.
+          - widget: markdown
+            name: body
+            label: Content
+            required: true
+            hint: Page content
+    - name: about
+      label: About
+      description: Pages about me and the site itself.
+      folder: /content/docs/about
+      create: true
+      extension: md
+      slug: '{{slug}}'
+      preview_path: docs/about/{{slug}}
+      fields:
+          - widget: string
+            name: title
+            label: Title
+            required: true
+            hint: >
+                The title of the page that will appear 
+                in the left hand navigation.
+          - widget: number
+            name: weight
+            label: Weight
+            required: false
+            hint: >
+                The navigation order of the page.
+          - widget: boolean
+            name: bookToc
+            label: Table of Contents
+            required: false
+            hint: >
+                If false, the right hand table of contents will not show.
+                Defaults to true.
+          - widget: boolean
+            name: bookHidden
+            label: Hidden?
+            required: false
+            hint: >
+                If true, the page will not list on the left hand navigation.
+          - widget: markdown
+            name: body
+            label: Content
+            required: true
+            hint: Page content
