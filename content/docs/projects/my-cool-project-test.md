@@ -1,5 +1,5 @@
 ---
-title: My Cool Project (Test)
+title: My Project
 ---
 # My Project
 
