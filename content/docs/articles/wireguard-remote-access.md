@@ -24,10 +24,34 @@ My solution? Use [Wireguard](https://www.wireguard.com/) to create a secure VPN 
 ## Set up the server
 
 ### Install Wireguard on the server
+```shell
+$ sudo apt install wireguard
+```
 
 ### Generate the server keys
+```shell
+$ wg genkey | tee privatekey | wg pubkey > publickey
+```
 
 ### Set up the server interface
+1. Create an interface called `wg0` using the [`ip`](https://man7.org/linux/man-pages/man8/ip.8.html) command.
+    ```shell
+    $ ip link add dev wg0 type wireguard
+    ```
+2. Assign a block of IP addresses to use for the interface and its peers. In my case, I don't expect to have a ton of peers connecting to this interface, so I'm using a relatively small range with only 15 IP addresses.
+    ```shell
+    $ ip address add dev wg0 192.168.2.1/28
+    ```
+3. Create a config file for the `wg0` interface at `/etc/wireguard/wg0.conf`. Add the following configuration:
+    ```
+    [Interface]
+    Address = 10.0.0.1/28
+    SaveConfig = true
+    ListenPort = 51820
+    PrivateKey = <yourserverprivatekey>
+    ```
+
+
 
 ## Set up the client
 
