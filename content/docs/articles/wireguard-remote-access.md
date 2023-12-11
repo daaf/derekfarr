@@ -14,9 +14,20 @@ For example, one of the apps I self-host is Actual, an open-source budgeting app
 My solution? Use Wireguard to create a secure VPN tunnel to my home server, allowing me to access my self-hosted apps remotely, whether I'm across the street or across the world.
 
 ## Conceptual overview
+Here's a breakdown of my use case:
 
+- I only care about accessing resources on a single server. I don't need remote access to anything else on my home network.
+
+- I don't need to send all my internet traffic through the VPN tunnel, just the traffic to and from my home server.
 
 ## Set up Wireguard
 
+### Generate the server keys
 
-## 
+### Set up the server interface
+
+### Generate the client keys
+
+### Set up the client interface
+
+### Add the client peer to the server configuration
