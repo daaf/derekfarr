@@ -30,47 +30,6 @@ collections:
                   label: Content
                   required: true
                   hint: Page content
-    - name: projects
-      label: Projects
-      label_singular: Project
-      description: Pages that are about a project of mine.
-      folder: /content/docs/projects
-      create: true
-      extension: md
-      slug: '{{slug}}'
-      preview_path: docs/projects/{{slug}}
-      fields:
-          - widget: string
-            name: title
-            label: Title
-            required: true
-            hint: >
-                The title of the page that will appear 
-                in the left hand navigation.
-          - widget: number
-            name: weight
-            label: Weight
-            required: false
-            hint: >
-                The navigation order of the page.
-          - widget: boolean
-            name: bookToc
-            label: Table of Contents
-            required: false
-            hint: >
-                If false, the right hand table of contents will not show. 
-                Defaults to true if empty.
-          - widget: boolean
-            name: bookHidden
-            label: Hidden?
-            required: false
-            hint: >
-                If true, the page will not list on the left hand navigation.
-          - widget: markdown
-            name: body
-            label: Content
-            required: true
-            hint: Page content
     - name: articles
       label: Articles
       label_singular: Article
