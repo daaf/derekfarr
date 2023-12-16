@@ -5,6 +5,7 @@
     <link>https://www.derekfarr.com/docs/</link>
     <description>Recent content in Docs on Derek Farr</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://www.derekfarr.com/docs/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <atom:link href="https://www.derekfarr.com/docs/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
