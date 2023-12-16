@@ -1,8 +1,8 @@
 node_modules
 **/.DS_STORE
 themes/hugo-book/exampleSite
-/public/
 /resources/_gen/
+/public/
 hugo.exe
 hugo.linux
 hugo.darwin
