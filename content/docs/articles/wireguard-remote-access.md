@@ -11,12 +11,12 @@ Until recently, I was only able to access my self-hosted apps at home on my home
 
 For example, one of the apps I self-host is [Actual](https://actualbudget.org/), an open-source budgeting app that totally changed the way I manage my personal finances. I love Actual, and I love the idea of keeping my financial data on my home network away from prying eyes. However, my inability to access Actual remotely meant I couldn't update my budget or add transactions without being at home. Annoying!
 
-My solution? Use [Wireguard](https://www.wireguard.com/) to create a secure VPN tunnel to my home server, allowing me to access my self-hosted apps from anywhere.
+My solution? Use [Wireguard](https://www.wireguard.com/) to create a secure <abbr title="Virtual Private Network">VPN</abbr> tunnel to my home server, allowing me to access my self-hosted apps from anywhere.
 
 ## Use case
 - I only care about accessing resources on a single server. I don't need remote access to anything else on my home network.
 
-- I plan to use my mobile phone as the "client" to access my server.
+- I plan to use my phone as the "client" to access my server.
 
 - I don't need to send all my internet traffic through the VPN tunnel, just the traffic to and from my server.
 
@@ -84,7 +84,7 @@ With the private and public keys ready, it's time to set up the Wireguard interf
     $ ip link set up dev wg0
     ```
 ## Set up the client
-I want to use a mobile phone as my client, which means I need to use the Wireguard mobile app to set up the tunnel. Here's the high level process:
+I want to use a phone as my client, which means I need to use the Wireguard mobile app to set up the tunnel. Here's the high level process:
   1. On the server:
       * Generate private and public keys for the phone's Wireguard interface.
       * Create a configuration file called `mobile.conf`.
@@ -95,13 +95,13 @@ I want to use a mobile phone as my client, which means I need to use the Wiregua
       * Use the Wireguard app to scan the QR code and save the configuration.
 
 ### Generate the client keys
-Generate another set of private and public keys, this time for the client. I prepended `mobile` to the names of these keys to indicate they're for my mobile phone.
+Generate another set of private and public keys, this time for the client. I prepended `mobile` to the names of these keys to indicate they're for my phone.
 ```shell
 $ wg genkey | tee mobileprivatekey | wg pubkey > mobilepublickey
 ```
 
 ### Configure the client interface
-Create another config file in `/etc/wireguard` to set up the client interface. I called mine `mobile.conf` to indicate it's for my mobile phone. The config file should also include information about the client's _peer_ — the server, in this case.
+Create another config file in `/etc/wireguard` to set up the client interface. I called mine `mobile.conf` to indicate it's for my phone. The config file should also include information about the client's peer—the server, in this case.
 ```
 [Interface]
 Address = 192.168.2.2/28
@@ -114,10 +114,10 @@ AllowedIPs = 192.168.2.1/32, 192.168.86.99/32
 ```
 The `[Peer]` section tells the client interface how to connect to the server interface. Here's a breakdown:
 * `PublicKey`: The server's public key
-* `Endpoint`: A publically accessible domain name or IP address<sup>1</sup> for the server, plus the `ListenPort` specified in the server interface configuration<sup>2</sup>. 
-* `AllowedIPs`: The IP addresses that the client should be able to access, expressed in CIDR notation. In my case, the client only needs to connect to the server, so I specified the IP address of the server's Wireguard interface and the IP address of the server on my home network.
+* `Endpoint`: A publicly accessible domain name or IP address<sup>1</sup> for the server, plus the `ListenPort` specified in the server interface configuration<sup>2</sup>. 
+* `AllowedIPs`: The IP addresses that the client should be able to access, expressed in <abbr title="Classless Inter-Domain Routing">CIDR</abbr> notation. In my case, the client only needs to connect to the server, so I specified the IP address of the server's Wireguard interface and the IP address of the server on my home network.
 
-  <sup>1</sup> The IP address assigned by my ISP is dynamic, so I use a [DuckDNS](https://www.duckdns.org/) domain name that always points to my public IP, even when it changes.
+  <sup>1</sup> The IP address assigned by my <abbr title="Internet Service Provider">ISP</abbr> is dynamic, so I use a [DuckDNS](https://www.duckdns.org/) domain name that always points to my public IP, even when it changes.
 
   <sup>2</sup> You'll need to set up port forwarding on the server's network gateway to forward traffic on this port to the `ListenPort` defined in the server's interface configuration.
 
@@ -137,7 +137,7 @@ AllowedIPs = 192.168.2.2/32
     ```shell
     $ sudo apt install qrencode
     ```
-2. Use `qrencode` to generate a QR code from `mobile.conf`. My server is headless — it has no GUI — so I used the `ansiutf8` option to specify that the QR code should be in a plaintext format.
+2. Use `qrencode` to generate a QR code from `mobile.conf`. My server is headless—it has no GUI—so I used the `ansiutf8` option to specify that the QR code should be in a plain text format.
     ```shell
     $ qrencode -t ansiutf8 < /etc/wireguard/mobile.conf
     ```
@@ -157,7 +157,7 @@ AllowedIPs = 192.168.2.2/32
 
 2. In the Wireguard mobile app, add a new tunnel and select **Create a new QR code**.
 
-2. On the server, open the QR code. If you have a plaintext QR code, you can use `cat` or a text editor like `nano` to display it.
+2. On the server, open the QR code. If you have a plain text QR code, you can use `cat` or a text editor like `nano` to display it.
     ```shell
     $ cat /etc/wireguard/mobile.conf
     ```
