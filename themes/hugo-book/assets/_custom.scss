@@ -1,17 +1,13 @@
 /* You can add custom styles here. */
 
 // @import "plugins/numbered";
-h1, h2, h3, h4, h5, h6 {
-    padding: .25rem .4rem;
-    background: var(--gray-200);
-    border-radius: .25rem;
-    width: fit-content;
-    font-family: roboto mono, monospace;
-}
 
 h1 {
-    font-size: 1.7rem;
+    display: block;
+    font-size: 1.6rem;
     padding: .4rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--gray-100);
 }
 
 h2 {
@@ -19,7 +15,8 @@ h2 {
 }
 
 h2.book-brand {
-    width: 100%;
+    border-radius: .25rem;
+    font-family: roboto mono, monospace;
     background: var(--gray-100);
     padding: .25rem;
 }
@@ -29,12 +26,7 @@ h2.book-brand > a > span {
 }
 
 article.markdown {
-    max-width: 40rem;
     min-height: 18.75rem;
-}
-
-article.markdown h1 + h2 {
-    margin-top: 1.68rem;
 }
 
 div.book-menu-content > nav > ul:last-child {
