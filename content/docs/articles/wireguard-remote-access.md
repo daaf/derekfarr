@@ -7,14 +7,13 @@ weight: 1
 ## Introduction
 I self-host a few apps on my home network, using a small single-board computer as my server.
 
-Until recently I was only able to access my self-hosted apps at home on my home network. That limitation caused me a few problems.
+Until recently, I was only able to access my self-hosted apps at home on my home network. That limitation caused me a few problems.
 
 For example, one of the apps I self-host is [Actual](https://actualbudget.org/), an open-source budgeting app that totally changed the way I manage my personal finances. I love Actual, and I love the idea of keeping my financial data on my home network away from prying eyes. However, my inability to access Actual remotely meant I couldn't update my budget or add transactions without being at home. Annoying!
 
-My solution? Use [Wireguard](https://www.wireguard.com/) to create a secure VPN tunnel to my home server, allowing me to access my self-hosted apps remotely.
+My solution? Use [Wireguard](https://www.wireguard.com/) to create a secure VPN tunnel to my home server, allowing me to access my self-hosted apps from anywhere.
 
 ## Use case
-This article describes the setup for my intended use case, described below.
 - I only care about accessing resources on a single server. I don't need remote access to anything else on my home network.
 
 - I plan to use my mobile phone as the "client" to access my server.
@@ -32,11 +31,11 @@ In this article, I use the terms _server_ and _client_ to describe the two endpo
 ## Set up the server
 
 ### Install Wireguard on the server
-Use the [installation method](https://www.wireguard.com/install/) of your choice to install Wireguard. I'm on Ubuntu, so I used the `apt` package manager.
+Use the [installation method](https://www.wireguard.com/install/) of your choice to install Wireguard. I'm on Ubuntu, so I use the `apt` package manager.
 ```shell
 $ sudo apt install wireguard
 ```
-Now you should be able to use the [`wg`](https://man7.org/linux/man-pages/man8/wg.8.html) command.
+Test that Wireguard installed successfully by running the [`wg`](https://man7.org/linux/man-pages/man8/wg.8.html) command. No output means the installation was successful.
 
 ### Generate the server keys
 Wireguard relies on encrypted keys for authentication between peers. Each peer needs to have a private key and an associated public key that's derived from the private key. 
@@ -51,7 +50,7 @@ Here's a breakdown of this command:
 * `wg pubkey > publickey`: Generates a public key from the private key and saves the public key in a file called `publickey`
 
 ### Configure the server interface
-Armed with our private and public keys, it's time to set up the first interface. I chose to start with the interface for my server.
+With the private and public keys ready, it's time to set up the Wireguard interface on the server.
 
 1. Create an interface called `wg0` using the [`ip`](https://man7.org/linux/man-pages/man8/ip.8.html) command.
     ```shell
@@ -108,7 +107,7 @@ Create another config file in `/etc/wireguard` to set up the client interface. I
 ```
 [Interface]
 Address = 192.168.2.2/28
-PrivateKey = mobilepublickey
+PrivateKey = mobileprivatekey
 
 [Peer]
 PublicKey = serverpublickey
@@ -122,13 +121,13 @@ The `[Peer]` section tells the client interface how to connect to the server int
 
   <sup>1</sup> The IP address assigned by my ISP is dynamic, so I use a [DuckDNS](https://www.duckdns.org/) domain name that always points to my public IP, even when it changes.
 
-  <sup>2</sup> You'll need to set up port forwarding on the server's network gateway to forward traffic on this port to the server's `ListenPort`.
+  <sup>2</sup> You'll need to set up port forwarding on the server's network gateway to forward traffic on this port to the `ListenPort` defined in the server's interface configuration.
 
 ### Add the client to the server configuration
 Now that you've set up the client configuration, go back to the server configuration in `wg0.conf` and add information about the client to the bottom of the file.
 ```
 [Peer]
-PublicKey = clientpublickey
+PublicKey = mobilepublickey
 AllowedIPs = 192.168.2.2/32
 ```
 * `PublicKey`: The client's public key
