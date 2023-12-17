@@ -84,8 +84,6 @@ With the private and public keys ready, it's time to set up the Wireguard interf
     $ ip link set up dev wg0
     ```
 ## Set up the client
-Setting up a second peer 
-
 I want to use a mobile phone as my client, which means I need to use the Wireguard mobile app to set up the tunnel. Here's the high level process:
   1. On the server:
       * Generate private and public keys for the phone's Wireguard interface.
@@ -97,7 +95,7 @@ I want to use a mobile phone as my client, which means I need to use the Wiregua
       * Use the Wireguard app to scan the QR code and save the configuration.
 
 ### Generate the client keys
-Generate another set of private and public keys. I prepended `mobile` to the names of these keys to indicate they're for my mobile phone.
+Generate another set of private and public keys, this time for the client. I prepended `mobile` to the names of these keys to indicate they're for my mobile phone.
 ```shell
 $ wg genkey | tee mobileprivatekey | wg pubkey > mobilepublickey
 ```
