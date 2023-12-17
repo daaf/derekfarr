@@ -1,8 +1,8 @@
 ---
-title: Access a remote server via Wireguard
+title: Access a remote server from anywhere via Wireguard
 weight: 1
 ---
-# Access a remote server via Wireguard
+# Access a remote server from anywhere via Wireguard
 
 ## Introduction
 I self-host a few apps on my home network, using a small single-board computer as my server.
@@ -14,9 +14,10 @@ For example, one of the apps I self-host is [Actual](https://actualbudget.org/),
 My solution? Use [Wireguard](https://www.wireguard.com/) to create a secure VPN tunnel to my home server, allowing me to access my self-hosted apps remotely.
 
 ## Use case
+This article describes the setup for my intended use case, described below.
 - I only care about accessing resources on a single server. I don't need remote access to anything else on my home network.
 
-- I plan on using my mobile phone as the "client" to access my server.
+- I plan to use my mobile phone as the "client" to access my server.
 
 - I don't need to send all my internet traffic through the VPN tunnel, just the traffic to and from my server.
 
@@ -25,7 +26,7 @@ My solution? Use [Wireguard](https://www.wireguard.com/) to create a secure VPN 
 {{<hint warning>}}
 **A note on terminology**
 
-In this article, I use the terms _server_ and _client_ to describe the two endpoints of a Wireguard tunnel. I also use the Wireguard term _peer_ to refer to endpoints in the abstract.
+In this article, I use the terms _server_ and _client_ to describe the two endpoints of a Wireguard tunnel. I also use the Wireguard term _peer_ to refer to these endpoints in the abstract.
 {{</hint>}}
 
 ## Set up the server
@@ -49,7 +50,7 @@ Here's a breakdown of this command:
 * `tee privatekey`: Saves the private key in a file called `privatekey` and writes the private key to stdout.
 * `wg pubkey > publickey`: Generates a public key from the private key and saves the public key in a file called `publickey`
 
-### Set up the server interface
+### Configure the server interface
 Armed with our private and public keys, it's time to set up the first interface. I chose to start with the interface for my server.
 
 1. Create an interface called `wg0` using the [`ip`](https://man7.org/linux/man-pages/man8/ip.8.html) command.
@@ -86,13 +87,13 @@ Armed with our private and public keys, it's time to set up the first interface.
 ## Set up the client
 Setting up a second peer 
 
-I want to use a mobile phone as my client, which means I need to use the Wireguard mobile app to set up the tunnel. At a high level, I'm going to:
-  1. On my server:
-      * Generate private and public keys for my phone's Wireguard interface.
+I want to use a mobile phone as my client, which means I need to use the Wireguard mobile app to set up the tunnel. Here's the high level process:
+  1. On the server:
+      * Generate private and public keys for the phone's Wireguard interface.
       * Create a configuration file called `mobile.conf`.
       * Use `qrencode` to generate a QR code from the config file.
 
-  2. On my phone:
+  2. On the phone:
       * Download the Wireguard app.
       * Use the Wireguard app to scan the QR code and save the configuration.
 
@@ -102,8 +103,8 @@ Generate another set of private and public keys. I prepended `mobile` to the nam
 $ wg genkey | tee mobileprivatekey | wg pubkey > mobilepublickey
 ```
 
-### Set up the client interface
-Create another config file. I called mine `mobile.conf` to indicate it's for my mobile phone.
+### Configure the client interface
+Create another config file in `/etc/wireguard` to set up the client interface. I called mine `mobile.conf` to indicate it's for my mobile phone. The config file should also include information about the client's _peer_ — the server, in this case.
 ```
 [Interface]
 Address = 192.168.2.2/28
@@ -111,11 +112,59 @@ PrivateKey = mobilepublickey
 
 [Peer]
 PublicKey = serverpublickey
-Endpoint = <public domain/IP>:<port>
+Endpoint = mydomain.duckdns.org:51820
 AllowedIPs = 192.168.2.1/32, 192.168.86.99/32
-PersistentKeepalive = 15
 ```
-Here's a breakdown of the configuration file:
-* ``
+The `[Peer]` section tells the client interface how to connect to the server interface. Here's a breakdown:
+* `PublicKey`: The server's public key
+* `Endpoint`: A publically accessible domain name or IP address<sup>1</sup> for the server, plus the `ListenPort` specified in the server interface configuration<sup>2</sup>. 
+* `AllowedIPs`: The IP addresses that the client should be able to access, expressed in CIDR notation. In my case, the client only needs to connect to the server, so I specified the IP address of the server's Wireguard interface and the IP address of the server on my home network.
+
+  <sup>1</sup> The IP address assigned by my ISP is dynamic, so I use a [DuckDNS](https://www.duckdns.org/) domain name that always points to my public IP, even when it changes.
+
+  <sup>2</sup> You'll need to set up port forwarding on the server's network gateway to forward traffic on this port to the server's `ListenPort`.
 
 ### Add the client to the server configuration
+Now that you've set up the client configuration, go back to the server configuration in `wg0.conf` and add information about the client to the bottom of the file.
+```
+[Peer]
+PublicKey = clientpublickey
+AllowedIPs = 192.168.2.2/32
+```
+* `PublicKey`: The client's public key
+* `AllowedIPs`: The IP addresses that the server interface should be able to send packets to, expressed in CIDR notation. In my case, there's only one: the IP address of the client interface defined in `mobile.conf`.
+
+
+### Generate a QR code
+1. Download `qrencode`:
+    ```shell
+    $ sudo apt install qrencode
+    ```
+2. Use `qrencode` to generate a QR code from `mobile.conf`. My server is headless — it has no GUI — so I used the `ansiutf8` option to specify that the QR code should be in a plaintext format.
+    ```shell
+    $ qrencode -t ansiutf8 < /etc/wireguard/mobile.conf
+    ```
+
+## Start the server interface
+1. On the server, use the following command to start the `wg0` interface:
+    ```shell
+    $ wg-quick up wg0
+    ```
+2. Start the Wireguard service:
+    ```shell
+    $ sudo systemctl start wg-quick@wg0.service
+    ```
+
+## Set up the mobile interface
+1. Download the Wireguard mobile app.
+
+2. In the Wireguard mobile app, add a new tunnel and select **Create a new QR code**.
+
+2. On the server, open the QR code. If you have a plaintext QR code, you can use `cat` or a text editor like `nano` to display it.
+    ```shell
+    $ cat /etc/wireguard/mobile.conf
+    ```
+3. Scan the QR code and save the settings.
+
+## Connect to the server from the client
+At this point, you should have a working tunnel configured between your server and client. Use the Wireguard mobile app to start the client interface and enjoy accessing your server from anywhere!
