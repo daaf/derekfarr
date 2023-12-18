@@ -14,7 +14,7 @@ For example, one of the apps I self-host is [Actual](https://actualbudget.org/),
 My solution? Use [Wireguard](https://www.wireguard.com/) to create a secure <abbr title="Virtual Private Network">VPN</abbr> tunnel to my home server, allowing me to access my self-hosted apps from anywhere.
 
 ## Requirements
-This article describes how to create a bare-bones Wireguard setup that satifies my simple requirements:
+This article describes how to create a bare-bones Wireguard setup that satisfies my basic requirements:
 - I need access to resources on a single server. I don't need to access anything else on my home network or on the internet through the tunnel.
 - I must be able to use my phone as the "client" to access the server.
 
@@ -61,7 +61,7 @@ With the private and public keys ready, you're ready to configure the Wireguard 
     ListenPort = 51820
     PrivateKey = serverprivatekey
     ```
-    * `Address`: An IP address and subnet for the server's interface on Wireguard's virtual network. It shouldn't overlap with any subnet in use on the server's LAN. In this simple use case with only two peers, the interface's subnet consists of a single IP address.
+    * `Address`: An IP address and subnet for the server's interface on Wireguard's virtual network. It shouldn't overlap with any subnet in use on the server's <abbr title="Local Area Network">LAN</abbr>. In this basic use case with only two peers, the interface's subnet consists of a single IP address.
     * `ListenPort`: The port the interface is listening on.
     * `PrivateKey`: The **server** private key you generated in [_Generate the server and client keys_](#generate-the-server-and-client-keys).
 
@@ -83,7 +83,7 @@ With the private and public keys ready, you're ready to configure the Wireguard 
     AllowedIPs = 192.168.2.1/32, 192.168.86.99/32
     ```
     The `[Interface]` section defines the client interface.
-    * `Address`: An IP address and subnet for the client's Wireguard interface. This IP address will be used for the client on Wireguard's virtual network. Like in the server interface configuration, the subnet here is just a single IP address.
+    * `Address`: An IP address and subnet for the client's interface on Wireguard's virtual network. Like in the server interface configuration, the subnet here is just a single IP address.
     * `PrivateKey`: The **client** private key you generated in [_Generate server and client keys_](#generate-server-and-client-keys).
 
     The `[Peer]` section tells the client interface how to connect to the server interface.
@@ -91,7 +91,7 @@ With the private and public keys ready, you're ready to configure the Wireguard 
     * `Endpoint`: A publicly accessible domain name or IP address<sup>1</sup> for the server, plus the `ListenPort` specified in the server interface configuration<sup>2</sup>. 
     * `AllowedIPs`: IP addresses that the client should accept traffic from over its Wireguard interface. To connect to resources on my home server, I entered two IP addresses:
         * The IP address of the server's Wireguard interface defined in `wg0.conf`
-        * The IP address of the server on my <abbr title="Local Area Network">LAN</abbr> at home
+        * The IP address of the server on my LAN at home
 
     <sup>1</sup> The IP address assigned by my <abbr title="Internet Service Provider">ISP</abbr> is dynamic, so I use a [DuckDNS](https://www.duckdns.org/) domain name that always points to my public IP, even when it changes.
 
