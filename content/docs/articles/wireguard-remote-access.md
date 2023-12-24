@@ -111,6 +111,36 @@ With the private and public keys ready, you're ready to configure the Wireguard 
     * `PublicKey`: The client's public key
     * `AllowedIPs`: IP addresses that the server interface should be able to send packets to. In this case, there's only one: the IP address of the client's Wireguard interface defined in `mobile.conf`.
 
+At this point it might be helpful to review the contents of the two configuration files side-by-side:
+{{<columns>}}
+```
+/etc/wireguard/wg0.conf
+
+[Interface]
+Address = 192.168.2.1/32
+ListenPort = 51820
+PrivateKey = serverprivatekey
+
+[Peer]
+PublicKey = mobilepublickey
+AllowedIPs = 192.168.2.2/32
+```
+<--->
+```
+/etc/wireguard/mobile.conf
+
+[Interface]
+Address = 192.168.2.2/32
+PrivateKey = mobileprivatekey
+
+[Peer]
+PublicKey = serverpublickey
+Endpoint = mydomain.duckdns.org:51820
+AllowedIPs = 192.168.2.1/32, 192.168.86.99/32
+```
+{{</columns>}}
+
+In the server configuration, the peer's `AllowedIPs` value is the same as the client interface's `Address`. Likewise, in the client configuration, one of the peer's `AllowedIPs` is  the server interface's `Address`.
 
 ### Set up the client
 At this point, you've created the server and client configuration and have the server interface running. Now you need to get the client configuration onto your phone.
