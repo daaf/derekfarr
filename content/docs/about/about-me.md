@@ -6,12 +6,14 @@ weight: 1
 
 This page summarizes the interests and philosophies that I apply to writing and my work in general.
 
-
-
 ## 📝 My approach to writing
 
-* Writing for the web
+I aim for my writing to be as inclusive and understandable as possible. To that end, I typically adhere to the following principles and practices:
+* [Writing for the web](https://www.usability.gov/how-to-and-tools/methods/writing-for-the-web.html)
+* [Plain language](https://www.plainlanguage.gov/)
 * Inclusive writing
+
+My style guide of choice is [Microsoft Manual of Style](https://learn.microsoft.com/en-us/style-guide). On this website, I enforce the Microsoft style and the principles above with [Vale](https://vale.sh/) and its plugin for [alex](https://alexjs.com/).
 
 ## 🧠 My approach to knowledge management
 When I approach a problem related to knowledge management (KM), I like to examine it from 4 points of view:
@@ -20,7 +22,7 @@ When I approach a problem related to knowledge management (KM), I like to examin
 * [**Processes**](#processes)
 * [**Enablement**](#enablement)
 
-The items above are a simple heuristic that helps me parse and decompose KM issues that might otherwise appear confoundingly ambiguous. Each is discussed in more detail below.
+The items above are a heuristic to help parse and decompose KM issues that might otherwise appear confoundingly ambiguous. Each is discussed in more detail below.
 
 ### Information architecture
 **Information architecture (IA)** is a discipline focused on finding the best ways to guide users to the assets they need. It's a multi-faceted domain that bears many similarities to user experience (UX) design.
