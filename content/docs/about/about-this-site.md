@@ -1,8 +1,8 @@
 ---
-title: About This Site
+title: About this site
 weight: 2
 ---
-# About This Site
+# About this site
 
 This site is a basic exemplar of the [Jamstack](https://jamstack.wtf/). It uses:[](https://gohugo.io)
 
