@@ -65,9 +65,9 @@ With the private and public keys ready, you're ready to configure the Wireguard 
     * `ListenPort`: The port the interface is listening on.
     * `PrivateKey`: The **server** private key you generated in [_Generate the server and client keys_](#generate-the-server-and-client-keys).
 
-2. Tell Wireguard that `wg0.conf` should define the configuration for the `wg0` interface:
+2. Restrict the permissions of `wg0.conf`:
     ```shell
-    $ wg setconf wg0 /etc/wireguard/wg0.conf
+    $ chmod 600 /etc/wireguard/wg0.conf
     ```
 
 ### Configure the client
@@ -96,6 +96,11 @@ With the private and public keys ready, you're ready to configure the Wireguard 
     <sup>1</sup> The IP address assigned by my <abbr title="Internet Service Provider">ISP</abbr> is dynamic, so I use a [DuckDNS](https://www.duckdns.org/) domain name that always points to my public IP, even when it changes.
 
     <sup>2</sup> You'll need to set up port forwarding on the server's network gateway to forward traffic on this port to the `ListenPort` defined in the server's interface configuration.
+
+2. Restrict the permissions of `mobile.conf`:
+    ```shell
+    $ chmod 600 /etc/wireguard/mobile.conf
+    ```
 
 2. Go back to the server configuration in `wg0.conf` and create a `Peer` section with information about the client.
     ```
