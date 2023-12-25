@@ -165,9 +165,10 @@ At this point, you've created the server and client configuration and have the s
 6. Use your phone to scan the QR code and save the settings.
 
 ### Start the interfaces and connect
-1. On the server, use the following command to start the `wg0` interface:
+1. On the server, add the Wireguard service to `systemd` so the `wg0` interface starts automatically when the server boots up:
     ```shell
-    $ wg-quick up wg0
+    $ sudo systemctl enable wg-quick@wg0.service
+    $ sudo systemctl daemon-reload
     ```
 2. Start the Wireguard service:
     ```shell
