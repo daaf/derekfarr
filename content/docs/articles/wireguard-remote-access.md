@@ -1,6 +1,6 @@
 ---
 title: Access a remote server from a mobile phone via Wireguard
-weight: 1
+weight: 2
 ---
 # Access a remote server from a mobile phone via Wireguard
 
