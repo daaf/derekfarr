@@ -6,3 +6,6 @@ prepended
 prepending
 subnet
 alex
+Proxmox
+hostname
+Corosync
