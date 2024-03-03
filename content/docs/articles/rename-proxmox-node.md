@@ -5,11 +5,11 @@ weight: 1
 # Rename a Proxmox node
 
 ## Introduction
-Changing the hostname of a conventional Linux host is easy: Change the name in `/etc/hosts` and `/etc/hostname`, reboot, and you're pretty much done. If the host is a Proxmox node, the process is a little more complicated: The node name is reflected in a handful of directories and configuration files, all of which must be updated to avoid negative consequences.
+Changing the hostname of a conventional Linux machine is pretty straightforward: Change the name in `/etc/hosts` and `/etc/hostname`, reboot, and you're done.
 
-There's more: If the node is in a Proxmox cluster, you'll also need to contend with Corosync and `pmxcfs` or risk bringing your cluster down.
+If the host is a Proxmox node, the process is a little more complicated. In addition to `/etc/hosts` and `/etc/hostname`, you must update the names of a few directories used to store configuration and data for the node. If the node is in a cluster, you'll also need to update your Corosync configuration or risk bringing your entire cluster down.
 
-This page has instructions for both cases — [renaming a standalone node](#rename-a-standalone-node) and [renaming a node in a cluster](#rename-a-node-in-a-cluster).
+This page has instructions for both [renaming a standalone node](#rename-a-standalone-node) and [renaming a node in a cluster](#rename-a-node-in-a-cluster).
 
 ## Instructions
 
@@ -56,7 +56,7 @@ This page has instructions for both cases — [renaming a standalone node](#rena
 ### Rename a node in a cluster
 If your node is in an active cluster, you'll also have to stop Corosync, force `pmxcfs` into `local` mode, and update the Corosync configuration.
 
-1. Follow steps 1–8 of [Rename a standalone node](#rename-a-standalone-node).
+1. Follow steps one through eight of [Rename a standalone node](#rename-a-standalone-node).
 
 2. Stop the cluster and [force local mode](https://pve.proxmox.com/pve-docs/pmxcfs.8.html) so you can update the cluster configuration:
     ```shell
