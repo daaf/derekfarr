@@ -5,7 +5,7 @@ weight: 2
 # Rename a Proxmox node
 
 ## Introduction
-Similar to [renaming a Proxmox node](/docs/articles/rename-proxmox-node), changing the IP address of a node in a Proxmox cluster isn't as straightforward as changing the IP address of a conventional Linux host. The IP address must be updated on every node in the cluster
+Similar to [renaming a Proxmox node](/docs/articles/rename-proxmox-node), changing the IP address of a node in a Proxmox cluster isn't as straightforward as changing the IP address of a conventional Linux host.
 
 ## Instructions
 ### Change node's IP address
