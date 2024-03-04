@@ -36,3 +36,10 @@ div.book-menu-content > nav > ul:last-child {
 #book-search-input {
     padding: .75rem;
 }
+
+article.markdown img {
+    // padding: .25rem;
+    border: 10px solid var(--gray-100);
+    border-radius: .25rem;
+    outline: 7px solid var(--gray-200);
+}
