@@ -149,7 +149,7 @@ At this point, you've created the server and client configuration and have the s
     ```shell
     $ sudo apt install qrencode
     ```
-2. Use `qrencode` to generate a QR code from `mobile.conf`. My server is headless—it has no GUI—so I used the `ansiutf8` option to specify that the QR code should be in a plain text format.
+2. Use `qrencode` to generate a QR code from `mobile.conf`. My server has no desktop environment, so I used the `ansiutf8` option to specify that the QR code should be in a plain text format.
     ```shell
     $ qrencode -t ansiutf8 < /etc/wireguard/mobile.conf
     ```
@@ -160,7 +160,7 @@ At this point, you've created the server and client configuration and have the s
 
 4. On your phone, download the Wireguard mobile app.
 
-5. In the Wireguard mobile app, add a new tunnel and select **Create a new QR code**.
+5. In the Wireguard mobile app, add a new tunnel and select **Create from QR code**.
 
 6. Use your phone to scan the QR code and save the settings.
 
