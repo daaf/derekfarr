@@ -56,7 +56,7 @@ This page has instructions for both [renaming a standalone node](#rename-a-stand
 ### Rename a node in a cluster
 If your node is in an active cluster, you'll also have to stop Corosync, force `pmxcfs` into `local` mode, and update the Corosync configuration.
 
-1. Follow steps one through eight of [Rename a standalone node](#rename-a-standalone-node).
+1. Follow steps one through seven of [Rename a standalone node](#rename-a-standalone-node).
 
 2. Stop the cluster and [force local mode](https://pve.proxmox.com/pve-docs/pmxcfs.8.html) so you can update the cluster configuration:
     ```shell
