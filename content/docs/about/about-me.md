@@ -13,7 +13,7 @@ I aim for my writing to be as inclusive and understandable as possible. To that 
 * [Plain language](https://www.plainlanguage.gov/)
 * Inclusive writing
 
-My style guide of choice is [Microsoft Manual of Style](https://learn.microsoft.com/en-us/style-guide). On this website, I enforce the Microsoft style and the preceding principles with [Vale](https://vale.sh/) and its plugin for [alex](https://alexjs.com/).
+My style guide of choice is [Microsoft Manual of Style](https://learn.microsoft.com/en-us/style-guide).
 
 ## 🧠 My approach to knowledge management
 When I approach a problem related to knowledge management (KM), I like to examine it from 4 points of view. Click the boxes below to learn more about each.

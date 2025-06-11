@@ -5,15 +5,8 @@ weight: 3
 # Access a remote server from a mobile phone via WireGuard
 
 ## Introduction
-I self-host a few apps on my home network, using a small single-board computer as my server.
+I self-host a few apps on my home network and needed a way to access those apps remotely. My solution? Use [WireGuard](https://www.wireguard.com/) to create a secure <abbr title="Virtual Private Network">VPN</abbr> tunnel to my home server, allowing me to access my self-hosted apps from anywhere.
 
-Until recently, I was only able to access my self-hosted apps at home on my home network. That limitation caused me a few problems.
-
-For example, one of the apps I self-host is [Actual](https://actualbudget.org/), an open-source budgeting app that totally changed the way I manage my personal finances. I love Actual, and I love the idea of keeping my financial data on my home network away from prying eyes. However, my inability to access Actual remotely meant I couldn't update my budget or add transactions without being at home. Annoying!
-
-My solution? Use [WireGuard](https://www.wireguard.com/) to create a secure <abbr title="Virtual Private Network">VPN</abbr> tunnel to my home server, allowing me to access my self-hosted apps from anywhere.
-
-## Requirements
 This article describes how to create a bare-bones WireGuard setup that satisfies my basic requirements:
 - I need access to resources on a single server. I don't need to access anything else on my home network or on the internet through the tunnel.
 - I must be able to use my phone as the "client" to access the server.

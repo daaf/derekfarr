@@ -8,7 +8,7 @@ bookToc: false
 ![Me](/images/me.jpeg)
 
 ## 💁‍♂️ Who am I?
-I'm a business operations professional living in Philadelphia, USA. I like to spend my free time exploring programming and other technical topics. I also like photography, playing guitar and drums, and getting lost on my bike!
+I'm a technical communication professional living in Philadelphia, PA, USA. Outside of work, I'm interested in the intersection of art and technology. I also like photography, playing guitar, piano, and drums, and getting lost on my bike!
 
 For more about me, visit the [About me](https://derekfarr.com/docs/about/about-me) page.
 
